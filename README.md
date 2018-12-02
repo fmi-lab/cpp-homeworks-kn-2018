@@ -14,7 +14,7 @@
 
 0. Направете празен проект с празен `solution.cpp` файл.
    - **За Visual Studio** направете `Empty Project`, не `Console Application` (така няма да имате проблеми свързани със `stdafx.h`).
-1. Свалете [doctest.h](lib/doctest.h) (десен бутон на този линк -> Save as...) в папката на решението си.
+1. Свалете [doctest.h](lib/doctest.h?raw=true) (десен бутон на този линк -> Save as...) в папката на решението си.
     - **За Visual Studio:**
         - Сложете този файл в папката `Header Files`.
         - Погрижете се, че в right-click менюто на този файл -> `Properties` на `General` таб-а в `Item Type` пише `C/C++ header`.
