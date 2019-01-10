@@ -2,27 +2,25 @@
 #include "doctest.h"
 #include <iostream>
 
-bool allConcatenatedNumbers(int numbers[], int length);
+bool allRepeatedNumbers(unsigned int numbers[], unsigned int length);
 
-TEST_CASE("Recognizes concatenated numbers for single-digit numbers 0 - 11") {
-    int numbers[] = { 0, 11, 22, 3, 444, 55, 6666, 7, 8, 99, 101010, 1111 };
-    int length = sizeof(numbers)/sizeof(int);
+TEST_CASE("Recognizes repeated numbers for single-digit numbers 0 - 11") {
+    unsigned int numbers[] = { 0, 11, 22, 3, 444, 55, 6666, 7, 8, 99, 101010, 1111 };
+    unsigned int length = sizeof(numbers)/sizeof(unsigned int);
 
-    CHECK(allConcatenatedNumbers(numbers, length));
+    CHECK(allRepeatedNumbers(numbers, length));
 }
+TEST_CASE("Multiples are not repeated numbers") {
+    unsigned int numbers[] = { 0, 2 };
+    unsigned int length = sizeof(numbers)/sizeof(unsigned int);
 
-TEST_CASE("Multiples are not concatenated numbers") {
-    int numbers[] = { 0, 2 };
-    int length = sizeof(numbers)/sizeof(int);
-
-    CHECK_FALSE(allConcatenatedNumbers(numbers, length));
+    CHECK_FALSE(allRepeatedNumbers(numbers, length));
 }
+TEST_CASE("Numbers must be fully repeated") {
+    unsigned int numbers[11] = { 0, 11, 22, 3, 444, 55, 6666, 7, 8, 99, 10101 };
+    unsigned int length = sizeof(numbers)/sizeof(unsigned int);
 
-TEST_CASE("Concatenated number must be fully repeated") {
-    int numbers[11] = { 0, 11, 22, 3, 444, 55, 6666, 7, 8, 99, 10101 };
-    int length = sizeof(numbers)/sizeof(int);
-
-    CHECK_FALSE(allConcatenatedNumbers(numbers, length));
+    CHECK_FALSE(allRepeatedNumbers(numbers, length));
 }
 
 int main() {
