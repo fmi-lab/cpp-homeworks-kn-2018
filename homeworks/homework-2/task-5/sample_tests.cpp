@@ -8,8 +8,9 @@ TEST_CASE("works for a single word") {
 	char grid[30][30][101] = {
 		{"cat"}
 	};
+	char sentence[101] = "cat";
 
-	CHECK(countReads(grid, 1, 1, "cat") == 1);
+	CHECK(countReads(grid, 1, 1, sentence) == 1);
 }
 
 TEST_CASE("starts from any point of the grid") {
@@ -17,8 +18,9 @@ TEST_CASE("starts from any point of the grid") {
 		{"cat", "dog"},
 		{"tiger", "cat"}
 	};
+	char sentence[101] = "cat";
 
-	CHECK(countReads(grid, 2, 2, "cat") == 2);
+	CHECK(countReads(grid, 2, 2, sentence) == 2);
 }
 
 TEST_CASE("repeats squares") {
@@ -26,8 +28,9 @@ TEST_CASE("repeats squares") {
 		{"one", "two", "three"},
 		{"four", "five", "six"}
 	};
+	char sentence[101] = "one two three two five";
 
-	CHECK(countReads(grid, 2, 3, "one two three two five") == 1);
+	CHECK(countReads(grid, 2, 3, sentence) == 1);
 }
 
 int main() {
